@@ -50,3 +50,6 @@ addr=5'd0;
 #10;
 
 end
+initial 
+#40 $stop
+endmodule
