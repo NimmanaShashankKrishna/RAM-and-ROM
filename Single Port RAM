@@ -18,4 +18,4 @@ else
 addr regi<=addr;
 end
 assign q=ram[addr regi];
-end module
+endmodule
