@@ -1,0 +1,47 @@
+module rom_tb;
+  reg [3:0] addr;
+  reg en;
+  reg clk;
+  wire [3:0] data;
+  
+  rom dpr1(
+    .en(en),
+    .addr(addr),
+    .clk(clk)
+  );
+  initial 
+    begin
+      $dumpfile("dump.vcd");
+      $dumpvars(1,rom_tb);
+      
+      clk=1'b1;
+      forever #5 clk = ~clk;
+    end
+  
+  initial
+    begin 
+     en=1'b0;
+      
+      #10;
+      
+      en=1'b1;
+      addr=4'b1010;
+      
+      #10;
+    
+     addr=4'b0110;
+      
+      #10;
+      
+      addr=4'b0110;
+      
+      #10;
+      
+    end
+      
+  initial 
+    #40 $stop;
+    
+    endmodule
+    
+  
